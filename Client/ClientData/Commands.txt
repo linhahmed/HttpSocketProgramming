@@ -1,0 +1,7 @@
+client_get /hehe.txt localhost
+client_post /k.txt localhost
+client_get /lala.txt localhost
+client_get /Hiolaf.png localhost
+client_post /postdata.html localhost
+client_post /happyolaf.jpeg localhost
+client_get /getdata.html localhost
