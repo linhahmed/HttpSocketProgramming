@@ -62,6 +62,12 @@ int main(int argc, char *argv[])
     {
         /* build the response message. */
         string msgreq = handleMsgReq(reqs[i]);
+        if (msgreq.empty())
+        {
+            cout << "The File requested to send doesn't even exist." << endl;
+            continue;
+        }
+
         cout << "The Request message from client to the server. " << endl;
         cout << msgreq << endl;
 
@@ -195,13 +201,20 @@ string handleMsgReq(Request req)
         msg += "\n\n";
         string path = "../Client/ClientData" + request[1];
         ifstream file(path);
-        string line;
-        int size = 0;
-        while (getline(file, line))
+        if (file.good())
         {
-            size += line.length();
-            msg += line;
-            msg += "\n";
+            string line;
+            int size = 0;
+            while (getline(file, line))
+            {
+                size += line.length();
+                msg += line;
+                msg += "\n";
+            }
+        }
+        else
+        {
+            msg = "";
         }
     }
     return msg;
