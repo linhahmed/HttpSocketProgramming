@@ -95,8 +95,8 @@ void *handleClients(void *clientptr)
 {
     int client = *((int *)clientptr);
     std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now(); 
-    /* loop on duration = 5 after nothing recieved. */
-    while (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - begin).count() < 5)
+    /* loop on duration = 10 after nothing recieved. */
+    while (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - begin).count() < 10)
     {
         int result;
         char buffer[SIZE + 1];
